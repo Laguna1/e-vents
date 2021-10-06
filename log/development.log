@@ -113,3 +113,114 @@ Migrating to AddNameToUsers (20211006205646)
   [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users/sign_up" for ::1 at 2021-10-07 00:04:23 +0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 15.4ms | Allocations: 6689)
+  Rendered layout layouts/application.html.erb (Duration: 15.7ms | Allocations: 6753)
+Completed 500 Internal Server Error in 72ms (ActiveRecord: 0.0ms | Allocations: 12040)
+
+
+  
+ActionView::Template::Error (undefined method `name' for #<User id: nil, email: "", created_at: nil, updated_at: nil>):
+    4:   <%= f.error_notification %>
+    5: 
+    6:   <div class="form-inputs">
+    7:     <%= f.input :name, required: true, autofocus: true, input_html: { class:"input" }, wrapper: false, label_html: { class:"label" } %>
+    8:     <%= f.input :email,
+    9:                 required: true,
+   10:                 autofocus: true,
+  
+app/views/devise/registrations/new.html.erb:7
+app/views/devise/registrations/new.html.erb:3
+Started GET "/users/sign_up" for ::1 at 2021-10-07 00:04:44 +0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.8ms | Allocations: 530)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 46.0ms | Allocations: 18323)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 65.6ms | Allocations: 24317)
+Completed 200 OK in 172ms (Views: 134.5ms | ActiveRecord: 1.8ms | Allocations: 32445)
+
+
+Started GET "/" for ::1 at 2021-10-07 00:04:47 +0300
+  
+ActionController::RoutingError (uninitialized constant SessionController):
+  
+Started GET "/" for ::1 at 2021-10-07 00:04:52 +0300
+  
+ActionController::RoutingError (uninitialized constant SessionController):
+  
+Started GET "/" for ::1 at 2021-10-07 00:04:54 +0300
+  
+ActionController::RoutingError (uninitialized constant SessionController):
+  
+Started GET "/" for ::1 at 2021-10-07 00:05:08 +0300
+  
+ActionController::RoutingError (uninitialized constant SessionController):
+  
+Started GET "/users/sign_up" for ::1 at 2021-10-07 00:05:33 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 106)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 34.2ms | Allocations: 9147)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 51.5ms | Allocations: 12609)
+Completed 200 OK in 55ms (Views: 53.2ms | ActiveRecord: 0.0ms | Allocations: 13279)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-10-07 00:05:41 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.3ms | Allocations: 215)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 171.1ms | Allocations: 9182)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 180.2ms | Allocations: 12515)
+Completed 200 OK in 192ms (Views: 190.2ms | ActiveRecord: 0.0ms | Allocations: 13958)
+
+
+Started GET "/users/password/new" for ::1 at 2021-10-07 00:05:45 +0300
+Processing by Devise::PasswordsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/passwords/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 152)
+  Rendered devise/passwords/new.html.erb within layouts/application (Duration: 10.9ms | Allocations: 3488)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 23.3ms | Allocations: 6789)
+Completed 200 OK in 30ms (Views: 28.5ms | ActiveRecord: 0.0ms | Allocations: 7978)
+
+
+Started POST "/users/password" for ::1 at 2021-10-07 00:06:07 +0300
+Processing by Devise::PasswordsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>""}, "commit"=>"Send me reset password instructions"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/passwords/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 146)
+  Rendered devise/passwords/new.html.erb within layouts/application (Duration: 10.6ms | Allocations: 4179)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 16.3ms | Allocations: 7493)
+Completed 200 OK in 50ms (Views: 17.4ms | ActiveRecord: 0.0ms | Allocations: 9897)
+
+
+Started GET "/" for ::1 at 2021-10-07 00:14:39 +0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/views/users/index.html.erb:2
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 6.8ms | Allocations: 1609)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 653.8ms | Allocations: 115277)
+Completed 200 OK in 660ms (Views: 655.5ms | ActiveRecord: 1.1ms | Allocations: 117073)
+
+
