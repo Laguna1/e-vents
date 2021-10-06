@@ -320,3 +320,63 @@ app/models/user.rb:9:in `<class:User>'
 app/models/user.rb:5:in `<main>'
 config/routes.rb:4:in `block in <main>'
 config/routes.rb:3:in `<main>'
+Started GET "/" for ::1 at 2021-10-07 00:45:32 +0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 5.6ms | Allocations: 684)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 22.9ms | Allocations: 4188)
+Completed 200 OK in 33ms (Views: 24.1ms | ActiveRecord: 0.3ms | Allocations: 5272)
+
+
+Started GET "/users/sign_up" for ::1 at 2021-10-07 00:45:36 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.7ms | Allocations: 486)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 39.2ms | Allocations: 10547)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 52.4ms | Allocations: 13930)
+Completed 200 OK in 76ms (Views: 58.0ms | ActiveRecord: 0.0ms | Allocations: 19022)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-10-07 00:45:39 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 158)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 29.9ms | Allocations: 9073)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 44.0ms | Allocations: 12627)
+Completed 200 OK in 61ms (Views: 59.8ms | ActiveRecord: 0.0ms | Allocations: 13920)
+
+
+Started GET "/users" for ::1 at 2021-10-07 00:45:40 +0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 8.2ms | Allocations: 666)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 24.3ms | Allocations: 4722)
+Completed 200 OK in 27ms (Views: 24.9ms | ActiveRecord: 0.5ms | Allocations: 5119)
+
+
+Started GET "/users" for ::1 at 2021-10-07 00:45:42 +0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 674)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.2ms | Allocations: 4177)
+Completed 200 OK in 16ms (Views: 14.0ms | ActiveRecord: 0.2ms | Allocations: 4575)
+
+
