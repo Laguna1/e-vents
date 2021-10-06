@@ -1,7 +1,9 @@
 <section>
+<p>Users List</p>
   <% @users.each do |user| %>
     <p class='card'>
       <%= user.name %>
+      <p>User events</p>
     </p>
   <% end %>
 </section>

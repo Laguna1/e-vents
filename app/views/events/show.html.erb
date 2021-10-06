@@ -1,2 +1,6 @@
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+<h1>Event#show</h1>
+    <p>Creator: <%= show_creator(event) %>
+    <p>Event: <%= link_to @event.title, event_path(event) %></p>
+    <p>Place: <%= @event.place %></p>
+    <p>Date: <%= @event.date %></p>
+    <button>Interested</button>
