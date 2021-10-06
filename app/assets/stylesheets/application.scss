@@ -14,4 +14,18 @@
  *= require_self
  */
  @import "bulma";
+
+ .navbar-brand,
+.title {
+   color: white;
+ }
+ 
+ .notification:not(:last-child) {
+     margin-bottom: 0;
+ }
+
+ .title-reg {
+   color:  black;
+   font-size: 2rem;
+ }
  
