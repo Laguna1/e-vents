@@ -5,7 +5,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  
 
   has_many :created_events, class_name: 'Event', foreigh_key: 'creator_id', dependent: :destroy
   has_many :attendances, dependent: :destroy
