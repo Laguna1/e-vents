@@ -1,7 +1,7 @@
 <h3>Event#show</h3>
-<h1>Event: <%= link_to @event.title %></h1>
+<h1>Event: <%= @event.title %></h1>
     
-    <p>Creator: <%= link_to @event.creator.name, user_path(@event.creator) %></p>
+    <p>Creator: <%= @event.creator.name %></p>
     <p>Place: <%= @event.place %></p>
     <p>Date: <%= @event.date %></p>
 

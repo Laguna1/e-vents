@@ -1855,3 +1855,65 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 34ms (Views: 31.9ms | ActiveRecord: 0.1ms | Allocations: 5107)
 
 
+Started GET "/users/1" for ::1 at 2021-10-08 01:59:29 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 114)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/helpers/application_helper.rb:48:in `show_create_event_button'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:48:in `show_create_event_button'
+  Rendered layout layouts/application.html.erb (Duration: 28.2ms | Allocations: 9363)
+Completed 200 OK in 36ms (Views: 32.5ms | ActiveRecord: 0.7ms | Allocations: 11091)
+
+
+Started GET "/events/new" for ::1 at 2021-10-08 01:59:31 +0300
+Processing by EventsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/new.html.erb within layouts/application (Duration: 220.0ms | Allocations: 9125)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 234.1ms | Allocations: 12666)
+Completed 200 OK in 280ms (Views: 237.5ms | ActiveRecord: 0.2ms | Allocations: 19372)
+
+
+Started POST "/events" for ::1 at 2021-10-08 02:02:09 +0300
+Processing by EventsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "event"=>{"title"=>"Pool Party", "place"=>"My home", "date(1i)"=>"2021", "date(2i)"=>"10", "date(3i)"=>"7", "date(4i)"=>"22", "date(5i)"=>"59"}, "commit"=>"Create Event"}
+  [1m[36mUser Load (313.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 1836ms (ActiveRecord: 313.1ms | Allocations: 5526)
+
+
+  
+NameError (undefined local variable or method `event' for #<EventsController:0x00000000014488>
+Did you mean?  @event):
+  
+app/controllers/events_controller.rb:21:in `create'
+Started POST "/events" for ::1 at 2021-10-08 02:04:39 +0300
+Processing by EventsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "event"=>{"title"=>"Pool Party", "place"=>"My home", "date(1i)"=>"2021", "date(2i)"=>"10", "date(3i)"=>"7", "date(4i)"=>"22", "date(5i)"=>"59"}, "commit"=>"Create Event"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:22:in `create'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:22:in `create'
+  [1m[36mEvent Create (169.7ms)[0m  [1m[32mINSERT INTO "events" ("title", "place", "date", "created_at", "updated_at", "creator_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Pool Party"], ["place", "My home"], ["date", "2021-10-07 22:59:00"], ["created_at", "2021-10-07 23:04:49.307991"], ["updated_at", "2021-10-07 23:04:49.307991"], ["creator_id", 1]]
+  ↳ app/controllers/events_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (278.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/events_controller.rb:22:in `create'
+Completed 500 Internal Server Error in 1679ms (ActiveRecord: 494.7ms | Allocations: 19628)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"events"}, missing required keys: [:id]
+Did you mean?  event_url
+               events_url
+               events_path
+               events_show_url):
+  
+app/controllers/events_controller.rb:23:in `create'

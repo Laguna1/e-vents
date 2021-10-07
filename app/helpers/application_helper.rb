@@ -4,8 +4,6 @@ module ApplicationHelper
   def show_user(current_user)
     if signed_in?
       "<p class='control'>
-                #{link_to 'New Event', events_path, class: 'button is-info is-inverted mt-2'}</p>
-      <p class='control'>
         #{link_to current_user.name, user_path(current_user), class: 'button is-info is-inverted mt-2'}</p>
         <p class='control'>
             #{link_to 'Logout', destroy_user_session_path, method: :delete, class: 'button is-info is-inverted mt-2'}
@@ -44,5 +42,9 @@ module ApplicationHelper
       link_to 'Join Event', join_attendances_path(id: @event.id), class: 'button is-info is-inverted mt-2',
                                                                   method: :post.to_s.html_safe
     end
+  end
+
+  def show_create_event_button
+    (link_to 'Create new event', new_event_path, class: 'button is-info is-inverted mt-2').to_s.html_safe if current_user
   end
 end
