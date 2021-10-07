@@ -1,0 +1,524 @@
+  [1m[35m (16.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "attendances"[0m
+  [1m[35m (155.5ms)[0m  [1m[35mCREATE TABLE "attendances" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "event_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (154.7ms)[0m  [1m[35mCREATE INDEX "index_attendances_on_event_id" ON "attendances" ("event_id")[0m
+  [1m[35m (166.9ms)[0m  [1m[35mCREATE INDEX "index_attendances_on_user_id" ON "attendances" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "events"[0m
+  [1m[35m (120.7ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "place" varchar, "date" datetime, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "creator_id" integer)[0m
+  [1m[35m (165.9ms)[0m  [1m[35mCREATE INDEX "index_events_on_creator_id" ON "events" ("creator_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (131.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "name" varchar)[0m
+  [1m[35m (165.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (132.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aattendances" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "event_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "tindex_aattendances_on_user_id" ON "aattendances" ("user_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "tindex_aattendances_on_event_id" ON "aattendances" ("event_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aattendances" ("id","user_id","event_id","created_at","updated_at")
+                     SELECT "id","user_id","event_id","created_at","updated_at" FROM "attendances"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "attendances"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "attendances" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "event_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_777eb7170a"
+FOREIGN KEY ("event_id")
+  REFERENCES "events" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_attendances_on_event_id" ON "attendances" ("event_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_attendances_on_user_id" ON "attendances" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "attendances" ("id","user_id","event_id","created_at","updated_at")
+                     SELECT "id","user_id","event_id","created_at","updated_at" FROM "aattendances"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "aattendances"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (91.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aattendances" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "event_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_aattendances_on_user_id" ON "aattendances" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_aattendances_on_event_id" ON "aattendances" ("event_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aattendances" ("id","user_id","event_id","created_at","updated_at")
+                     SELECT "id","user_id","event_id","created_at","updated_at" FROM "attendances"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "attendances"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "attendances" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "event_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_777eb7170a"
+FOREIGN KEY ("event_id")
+  REFERENCES "events" ("id")
+, CONSTRAINT "fk_rails_77ad02f5c5"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_attendances_on_event_id" ON "attendances" ("event_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_attendances_on_user_id" ON "attendances" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "attendances" ("id","user_id","event_id","created_at","updated_at")
+                     SELECT "id","user_id","event_id","created_at","updated_at" FROM "aattendances"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "aattendances"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (66.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aevents" ("id" integer NOT NULL PRIMARY KEY, "title" varchar DEFAULT NULL, "place" varchar DEFAULT NULL, "date" datetime DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "creator_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aevents_on_creator_id" ON "aevents" ("creator_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aevents" ("id","title","place","date","created_at","updated_at","creator_id")
+                     SELECT "id","title","place","date","created_at","updated_at","creator_id" FROM "events"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE "events"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer NOT NULL PRIMARY KEY, "title" varchar DEFAULT NULL, "place" varchar DEFAULT NULL, "date" datetime DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "creator_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_15c34a9137"
+FOREIGN KEY ("creator_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_events_on_creator_id" ON "events" ("creator_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "events" ("id","title","place","date","created_at","updated_at","creator_id")
+                     SELECT "id","title","place","date","created_at","updated_at","creator_id" FROM "aevents"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "aevents"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (98.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (174.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (153.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20211006213034)[0m
+  [1m[35m (142.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20211006195131),
+(20211006205646),
+(20211006211632),
+(20211006212050),
+(20211006212709);
+
+[0m
+  [1m[35m (140.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2021-10-07 22:11:17.884979"], ["updated_at", "2021-10-07 22:11:17.884979"]]
+  [1m[36mTRANSACTION (136.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "37cfef93cc0772b494d20f4458bea4bc85f2558c"], ["created_at", "2021-10-07 22:11:18.026672"], ["updated_at", "2021-10-07 22:11:18.026672"]]
+  [1m[36mTRANSACTION (94.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "attendances"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (3.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "attendances"[0m
+  [1m[35m (163.2ms)[0m  [1m[35mCREATE TABLE "attendances" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "event_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (190.6ms)[0m  [1m[35mCREATE TABLE "attendances" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "event_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (187.2ms)[0m  [1m[35mCREATE INDEX "index_attendances_on_event_id" ON "attendances" ("event_id")[0m
+  [1m[35m (210.2ms)[0m  [1m[35mCREATE INDEX "index_attendances_on_event_id" ON "attendances" ("event_id")[0m
+  [1m[35m (255.5ms)[0m  [1m[35mCREATE INDEX "index_attendances_on_user_id" ON "attendances" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "events"[0m
+  [1m[35m (261.4ms)[0m  [1m[35mCREATE INDEX "index_attendances_on_user_id" ON "attendances" ("user_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "events"[0m
+  [1m[35m (252.7ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "place" varchar, "date" datetime, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "creator_id" integer)[0m
+  [1m[35m (277.5ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "place" varchar, "date" datetime, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "creator_id" integer)[0m
+  [1m[35m (265.6ms)[0m  [1m[35mCREATE INDEX "index_events_on_creator_id" ON "events" ("creator_id")[0m
+  [1m[35m (2.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (256.4ms)[0m  [1m[35mCREATE INDEX "index_events_on_creator_id" ON "events" ("creator_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (219.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "name" varchar)[0m
+  [1m[35m (183.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "name" varchar)[0m
+  [1m[35m (133.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (188.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (232.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aattendances" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "event_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_aattendances_on_user_id" ON "aattendances" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_aattendances_on_event_id" ON "aattendances" ("event_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "aattendances" ("id","user_id","event_id","created_at","updated_at")
+                     SELECT "id","user_id","event_id","created_at","updated_at" FROM "attendances"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "attendances"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "attendances" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "event_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_777eb7170a"
+FOREIGN KEY ("event_id")
+  REFERENCES "events" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_attendances_on_event_id" ON "attendances" ("event_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_attendances_on_user_id" ON "attendances" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "attendances" ("id","user_id","event_id","created_at","updated_at")
+                     SELECT "id","user_id","event_id","created_at","updated_at" FROM "aattendances"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "aattendances"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (204.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aattendances" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "event_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_aattendances_on_user_id" ON "aattendances" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aattendances_on_event_id" ON "aattendances" ("event_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "aattendances" ("id","user_id","event_id","created_at","updated_at")
+                     SELECT "id","user_id","event_id","created_at","updated_at" FROM "attendances"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "attendances"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "attendances" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "event_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_777eb7170a"
+FOREIGN KEY ("event_id")
+  REFERENCES "events" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_attendances_on_event_id" ON "attendances" ("event_id")[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE INDEX "index_attendances_on_user_id" ON "attendances" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "attendances" ("id","user_id","event_id","created_at","updated_at")
+                     SELECT "id","user_id","event_id","created_at","updated_at" FROM "aattendances"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "aattendances"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (208.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aattendances" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "event_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aattendances_on_user_id" ON "aattendances" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_aattendances_on_event_id" ON "aattendances" ("event_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "aattendances" ("id","user_id","event_id","created_at","updated_at")
+                     SELECT "id","user_id","event_id","created_at","updated_at" FROM "attendances"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "attendances"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "attendances" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "event_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_777eb7170a"
+FOREIGN KEY ("event_id")
+  REFERENCES "events" ("id")
+, CONSTRAINT "fk_rails_77ad02f5c5"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_attendances_on_event_id" ON "attendances" ("event_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_attendances_on_user_id" ON "attendances" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "attendances" ("id","user_id","event_id","created_at","updated_at")
+                     SELECT "id","user_id","event_id","created_at","updated_at" FROM "aattendances"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "aattendances"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (180.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aattendances" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "event_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_aattendances_on_user_id" ON "aattendances" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_aattendances_on_event_id" ON "aattendances" ("event_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aattendances" ("id","user_id","event_id","created_at","updated_at")
+                     SELECT "id","user_id","event_id","created_at","updated_at" FROM "attendances"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "attendances"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "attendances" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "event_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_777eb7170a"
+FOREIGN KEY ("event_id")
+  REFERENCES "events" ("id")
+, CONSTRAINT "fk_rails_77ad02f5c5"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_attendances_on_event_id" ON "attendances" ("event_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_attendances_on_user_id" ON "attendances" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "attendances" ("id","user_id","event_id","created_at","updated_at")
+                     SELECT "id","user_id","event_id","created_at","updated_at" FROM "aattendances"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "aattendances"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (187.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (145.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aevents" ("id" integer NOT NULL PRIMARY KEY, "title" varchar DEFAULT NULL, "place" varchar DEFAULT NULL, "date" datetime DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "creator_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aevents" ("id" integer NOT NULL PRIMARY KEY, "title" varchar DEFAULT NULL, "place" varchar DEFAULT NULL, "date" datetime DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "creator_id" integer DEFAULT NULL)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE INDEX "tindex_aevents_on_creator_id" ON "aevents" ("creator_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_aevents_on_creator_id" ON "aevents" ("creator_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aevents" ("id","title","place","date","created_at","updated_at","creator_id")
+                     SELECT "id","title","place","date","created_at","updated_at","creator_id" FROM "events"[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aevents" ("id","title","place","date","created_at","updated_at","creator_id")
+                     SELECT "id","title","place","date","created_at","updated_at","creator_id" FROM "events"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "events"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "events"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer NOT NULL PRIMARY KEY, "title" varchar DEFAULT NULL, "place" varchar DEFAULT NULL, "date" datetime DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "creator_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_15c34a9137"
+FOREIGN KEY ("creator_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer NOT NULL PRIMARY KEY, "title" varchar DEFAULT NULL, "place" varchar DEFAULT NULL, "date" datetime DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "creator_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_15c34a9137"
+FOREIGN KEY ("creator_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_events_on_creator_id" ON "events" ("creator_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_events_on_creator_id" ON "events" ("creator_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "events" ("id","title","place","date","created_at","updated_at","creator_id")
+                     SELECT "id","title","place","date","created_at","updated_at","creator_id" FROM "aevents"[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "events" ("id","title","place","date","created_at","updated_at","creator_id")
+                     SELECT "id","title","place","date","created_at","updated_at","creator_id" FROM "aevents"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aevents"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "aevents"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (184.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (186.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (164.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (226.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (217.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20211006213034)[0m
+  [1m[35m (189.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20211006213034)[0m
+  [1m[35m (186.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20211006195131),
+(20211006205646),
+(20211006211632),
+(20211006212050),
+(20211006212709);
+
+[0m
+  [1m[35m (155.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20211006195131),
+(20211006205646),
+(20211006211632),
+(20211006212050),
+(20211006212709);
+
+[0m
+  [1m[35m (205.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2021-10-07 22:11:21.759612"], ["updated_at", "2021-10-07 22:11:21.759612"]]
+  [1m[35m (229.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2021-10-07 22:11:21.782705"], ["updated_at", "2021-10-07 22:11:21.782705"]]
+  [1m[36mTRANSACTION (168.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (3.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "37cfef93cc0772b494d20f4458bea4bc85f2558c"], ["created_at", "2021-10-07 22:11:21.937712"], ["updated_at", "2021-10-07 22:11:21.937712"]]
+  [1m[36mTRANSACTION (194.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (2.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "37cfef93cc0772b494d20f4458bea4bc85f2558c"], ["created_at", "2021-10-07 22:11:21.984371"], ["updated_at", "2021-10-07 22:11:21.984371"]]
+  [1m[36mTRANSACTION (186.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (193.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (1.1ms)[0m  [1m[31mDELETE FROM "events";
+DELETE FROM "users";
+DELETE FROM "attendances";
+INSERT INTO "events" ("id", "title", "place", "date", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2021-10-07 00:16:32', '2021-10-07 22:11:22.289568', '2021-10-07 22:11:22.289568');
+INSERT INTO "events" ("id", "title", "place", "date", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2021-10-07 00:16:32', '2021-10-07 22:11:22.289568', '2021-10-07 22:11:22.289568');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2021-10-07 22:11:22.293607', '2021-10-07 22:11:22.293607');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2021-10-07 22:11:22.293607', '2021-10-07 22:11:22.293607');
+INSERT INTO "attendances" ("id", "user_id", "event_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2021-10-07 22:11:22.296469', '2021-10-07 22:11:22.296469');
+INSERT INTO "attendances" ("id", "user_id", "event_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2021-10-07 22:11:22.296469', '2021-10-07 22:11:22.296469')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mFixtures Load (4.0ms)[0m  [1m[31mDELETE FROM "events";
+DELETE FROM "users";
+DELETE FROM "attendances";
+INSERT INTO "events" ("id", "title", "place", "date", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2021-10-07 00:16:32', '2021-10-07 22:11:22.289557', '2021-10-07 22:11:22.289557');
+INSERT INTO "events" ("id", "title", "place", "date", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2021-10-07 00:16:32', '2021-10-07 22:11:22.289557', '2021-10-07 22:11:22.289557');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2021-10-07 22:11:22.293607', '2021-10-07 22:11:22.293607');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2021-10-07 22:11:22.293607', '2021-10-07 22:11:22.293607');
+INSERT INTO "attendances" ("id", "user_id", "event_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2021-10-07 22:11:22.296469', '2021-10-07 22:11:22.296469');
+INSERT INTO "attendances" ("id", "user_id", "event_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2021-10-07 22:11:22.296469', '2021-10-07 22:11:22.296469')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (6.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTruncate Tables (583.3ms)[0m  [1m[31mDELETE FROM "users";
+DELETE FROM "attendances";
+DELETE FROM "events"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.7ms)[0m  [1m[31mDELETE FROM "events";
+DELETE FROM "users";
+DELETE FROM "attendances";
+INSERT INTO "events" ("id", "title", "place", "date", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2021-10-07 00:16:32', '2021-10-07 22:13:33.099783', '2021-10-07 22:13:33.099783');
+INSERT INTO "events" ("id", "title", "place", "date", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2021-10-07 00:16:32', '2021-10-07 22:13:33.099783', '2021-10-07 22:13:33.099783');
+INSERT INTO "users" ("id", "email", "created_at", "updated_at") VALUES (980190962, 'test1@test.com', '2021-10-07 22:13:33.102468', '2021-10-07 22:13:33.102468');
+INSERT INTO "users" ("id", "email", "created_at", "updated_at") VALUES (298486374, 'test2@test.com', '2021-10-07 22:13:33.102468', '2021-10-07 22:13:33.102468');
+INSERT INTO "attendances" ("id", "user_id", "event_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2021-10-07 22:13:33.105626', '2021-10-07 22:13:33.105626');
+INSERT INTO "attendances" ("id", "user_id", "event_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2021-10-07 22:13:33.105626', '2021-10-07 22:13:33.105626')[0m
+  [1m[36mTruncate Tables (719.2ms)[0m  [1m[31mDELETE FROM "users";
+DELETE FROM "attendances";
+DELETE FROM "events"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.7ms)[0m  [1m[31mDELETE FROM "events";
+DELETE FROM "users";
+DELETE FROM "attendances";
+INSERT INTO "events" ("id", "title", "place", "date", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2021-10-07 00:16:32', '2021-10-07 22:13:33.208610', '2021-10-07 22:13:33.208610');
+INSERT INTO "events" ("id", "title", "place", "date", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2021-10-07 00:16:32', '2021-10-07 22:13:33.208610', '2021-10-07 22:13:33.208610');
+INSERT INTO "users" ("id", "email", "created_at", "updated_at") VALUES (980190962, 'test1@test.com', '2021-10-07 22:13:33.211287', '2021-10-07 22:13:33.211287');
+INSERT INTO "users" ("id", "email", "created_at", "updated_at") VALUES (298486374, 'test2@test.com', '2021-10-07 22:13:33.211287', '2021-10-07 22:13:33.211287');
+INSERT INTO "attendances" ("id", "user_id", "event_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2021-10-07 22:13:33.212767', '2021-10-07 22:13:33.212767');
+INSERT INTO "attendances" ("id", "user_id", "event_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2021-10-07 22:13:33.212767', '2021-10-07 22:13:33.212767')[0m
+  [1m[36mTRANSACTION (217.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------
+EventsControllerTest: test_should_get_show
+------------------------------------------
+  [1m[36mTRANSACTION (213.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------
+EventsControllerTest: test_should_get_index
+-------------------------------------------
+Started GET "/events/show" for 127.0.0.1 at 2021-10-08 01:13:33 +0300
+Started GET "/events/index" for 127.0.0.1 at 2021-10-08 01:13:33 +0300
+Processing by EventsController#index as HTML
+Processing by EventsController#show as HTML
+Completed 401 Unauthorized in 62ms (ActiveRecord: 0.0ms | Allocations: 1691)
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY created_at DESC[0m
+  Rendered events/index.html.erb within layouts/application (Duration: 64.6ms | Allocations: 4281)
+  Rendered layout layouts/application.html.erb (Duration: 64.8ms | Allocations: 4324)
+Completed 500 Internal Server Error in 267ms (ActiveRecord: 0.2ms | Allocations: 7618)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (27.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (50.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (21.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (10.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (40.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTruncate Tables (1850.8ms)[0m  [1m[31mDELETE FROM "users";
+DELETE FROM "attendances";
+DELETE FROM "events"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTruncate Tables (1975.6ms)[0m  [1m[31mDELETE FROM "users";
+DELETE FROM "attendances";
+DELETE FROM "events"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.8ms)[0m  [1m[31mDELETE FROM "events";
+DELETE FROM "users";
+DELETE FROM "attendances";
+INSERT INTO "events" ("id", "title", "place", "date", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2021-10-07 00:16:32', '2021-10-07 22:23:45.202125', '2021-10-07 22:23:45.202125');
+INSERT INTO "events" ("id", "title", "place", "date", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2021-10-07 00:16:32', '2021-10-07 22:23:45.202125', '2021-10-07 22:23:45.202125');
+INSERT INTO "users" ("id", "email", "created_at", "updated_at") VALUES (980190962, 'test1@test.com', '2021-10-07 22:23:45.205822', '2021-10-07 22:23:45.205822');
+INSERT INTO "users" ("id", "email", "created_at", "updated_at") VALUES (298486374, 'test2@test.com', '2021-10-07 22:23:45.205822', '2021-10-07 22:23:45.205822');
+INSERT INTO "attendances" ("id", "user_id", "event_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2021-10-07 22:23:45.207862', '2021-10-07 22:23:45.207862');
+INSERT INTO "attendances" ("id", "user_id", "event_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2021-10-07 22:23:45.207862', '2021-10-07 22:23:45.207862')[0m
+  [1m[36mFixtures Load (3.9ms)[0m  [1m[31mDELETE FROM "events";
+DELETE FROM "users";
+DELETE FROM "attendances";
+INSERT INTO "events" ("id", "title", "place", "date", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2021-10-07 00:16:32', '2021-10-07 22:23:45.202141', '2021-10-07 22:23:45.202141');
+INSERT INTO "events" ("id", "title", "place", "date", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2021-10-07 00:16:32', '2021-10-07 22:23:45.202141', '2021-10-07 22:23:45.202141');
+INSERT INTO "users" ("id", "email", "created_at", "updated_at") VALUES (980190962, 'test1@test.com', '2021-10-07 22:23:45.205847', '2021-10-07 22:23:45.205847');
+INSERT INTO "users" ("id", "email", "created_at", "updated_at") VALUES (298486374, 'test2@test.com', '2021-10-07 22:23:45.205847', '2021-10-07 22:23:45.205847');
+INSERT INTO "attendances" ("id", "user_id", "event_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2021-10-07 22:23:45.207863', '2021-10-07 22:23:45.207863');
+INSERT INTO "attendances" ("id", "user_id", "event_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2021-10-07 22:23:45.207863', '2021-10-07 22:23:45.207863')[0m
+  [1m[36mTRANSACTION (192.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------
+EventsControllerTest: test_should_get_show
+------------------------------------------
+  [1m[36mTRANSACTION (275.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------
+EventsControllerTest: test_should_get_index
+-------------------------------------------
+Started GET "/events/show" for 127.0.0.1 at 2021-10-08 01:23:48 +0300
+Started GET "/events/index" for 127.0.0.1 at 2021-10-08 01:23:48 +0300
+Processing by EventsController#show as HTML
+Processing by EventsController#index as HTML
+Completed 401 Unauthorized in 280ms (ActiveRecord: 0.0ms | Allocations: 1691)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (415.3ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY created_at DESC[0m
+  Rendered events/index.html.erb within layouts/application (Duration: 498.5ms | Allocations: 4281)
+  Rendered layout layouts/application.html.erb (Duration: 498.8ms | Allocations: 4324)
+Completed 500 Internal Server Error in 1303ms (ActiveRecord: 415.3ms | Allocations: 7616)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m

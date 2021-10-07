@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
-
   def show_user(current_user)
     if signed_in?
       "<p class='control'>
