@@ -1,8 +1,9 @@
-<h1>Event#show</h1>
+<h3>Event#show</h3>
+<h1>Event: <%= link_to @event.title %></h1>
+    
     <p>Creator: <%= link_to @event.creator.name, user_path(@event.creator) %></p>
-    <p>Event: <%= link_to @event.title %></p>
     <p>Place: <%= @event.place %></p>
     <p>Date: <%= @event.date %></p>
 
-    <button>Interested</button>
+    <%= link_to 'Join Event', '#', class: "button is-info is-inverted mt-2" %>
     <p>Visitors:  <%= show_attendees(@attendees)  %></p>

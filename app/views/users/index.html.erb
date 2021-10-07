@@ -1,9 +1,12 @@
 <section>
 <p>Users List</p>
   <% @users.each do |user| %>
-    <p class='card'>
-      <%= user.name %>
-      <p>(link?)This User`s events</p>
-    </p>
+    <div class='card'>
+      <p>
+        <strong><%= user.name %></strong>
+        <span>Created Events: <%= user.created_events.count %></span>
+        <span>Visited Events: <%= user.event_attended.count %></span>
+      </p>
+    </div>
   <% end %>
 </section>
