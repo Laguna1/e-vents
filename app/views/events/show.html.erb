@@ -1,6 +1,8 @@
 <h1>Event#show</h1>
-    <p>Creator: <%= show_creator(event) %>
-    <p>Event: <%= link_to @event.title, event_path(event) %></p>
+    <p>Creator: <%= link_to @event.creator.name, user_path(@event.creator) %></p>
+    <p>Event: <%= link_to @event.title %></p>
     <p>Place: <%= @event.place %></p>
     <p>Date: <%= @event.date %></p>
+
     <button>Interested</button>
+    <p>Visitors:  <%= show_attendees(@attendees)  %></p>
