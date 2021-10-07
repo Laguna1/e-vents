@@ -5,5 +5,5 @@
     <p>Place: <%= @event.place %></p>
     <p>Date: <%= @event.date %></p>
 
-    <%= link_to 'Join Event', join_attendances_path(id:@event.id), method: :post, class: "button is-info is-inverted mt-2" %>
+    <%= show_registration_button(@event) %>
     <p>Visitors:  <%= show_attendees(@attendees)  %></p>

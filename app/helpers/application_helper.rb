@@ -36,4 +36,13 @@ module ApplicationHelper
     end
     result.html_safe
   end
+
+  def show_registration_button(event)
+    if event.attendances.exists?(user_id: current_user.id)
+      '<p>Already done</p>'.html_safe
+    else
+      link_to 'Join Event', join_attendances_path(id: @event.id), class: 'button is-info is-inverted mt-2',
+                                                                  method: :post.to_s.html_safe
+    end
+  end
 end
