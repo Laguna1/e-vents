@@ -7,11 +7,11 @@ module ApplicationHelper
       "<p class='control'>
                 #{link_to 'New Event', events_path, class: 'button is-info is-inverted mt-2'}
               </p>
-      <p class='control mt-2'>
-        #{link_to current_user.name, user_path(current_user)}
+      <p class='control'>
+        #{link_to current_user.name, user_path(current_user), class: 'button is-info is-inverted mt-2'}
         </p>
           <p class='control'>
-            #{link_to 'Logout', destroy_user_session_path, method: :delete, class: 'button is-info'}
+            #{link_to 'Logout', destroy_user_session_path, method: :delete, class: 'button is-info is-inverted mt-2'}
           </p>".html_safe
     else
       "<p class='control'>
