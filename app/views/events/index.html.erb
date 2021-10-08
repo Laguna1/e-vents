@@ -3,6 +3,7 @@
   <% @events.each do |event| %>
     <p>Creator: <%= show_creator(event) %>
     <p>Event: <%= event.title %></p>
+    <p><%= link_to 'More:', event_path(event) %></p>
     <p>Place: <%= event.place %></p>
     <p>Date: <%= event.date %></p>
     <button>Interested</button>
