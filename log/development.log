@@ -1917,3 +1917,662 @@ Did you mean?  event_url
                events_show_url):
   
 app/controllers/events_controller.rb:23:in `create'
+Started GET "/" for ::1 at 2021-10-08 23:54:30 +0300
+  [1m[35m (17.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (16.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  [1m[35m (20.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 1]]
+  ↳ app/views/users/index.html.erb:7
+  [1m[35m (29.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/index.html.erb:8
+  Rendered users/index.html.erb within layouts/application (Duration: 615.0ms | Allocations: 12598)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 2904.5ms | Allocations: 24194)
+Completed 200 OK in 3018ms (Views: 2865.1ms | ActiveRecord: 68.4ms | Allocations: 27528)
+
+
+Started GET "/" for ::1 at 2021-10-09 00:59:44 +0300
+  [1m[35m (60.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (37.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  [1m[35m (26.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 1]]
+  ↳ app/views/users/index.html.erb:7
+  [1m[35m (50.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/index.html.erb:8
+  Rendered users/index.html.erb within layouts/application (Duration: 769.5ms | Allocations: 12591)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 2433.8ms | Allocations: 19755)
+Completed 200 OK in 2777ms (Views: 2404.5ms | ActiveRecord: 116.4ms | Allocations: 23144)
+
+
+Started GET "/users/sign_up" for ::1 at 2021-10-09 00:59:58 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 51.0ms | Allocations: 523)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2068.1ms | Allocations: 18445)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 2078.1ms | Allocations: 22055)
+Completed 200 OK in 2228ms (Views: 2081.7ms | ActiveRecord: 0.0ms | Allocations: 23896)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-10-09 01:00:01 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 214)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 279.9ms | Allocations: 9484)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 291.6ms | Allocations: 13194)
+Completed 200 OK in 296ms (Views: 294.1ms | ActiveRecord: 0.0ms | Allocations: 14493)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-10-09 01:00:04 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 148)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 47.6ms | Allocations: 8502)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 62.9ms | Allocations: 12622)
+Completed 200 OK in 65ms (Views: 63.7ms | ActiveRecord: 0.0ms | Allocations: 13213)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-10-09 01:00:05 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 148)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 24.6ms | Allocations: 8480)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 33.5ms | Allocations: 12074)
+Completed 200 OK in 36ms (Views: 34.3ms | ActiveRecord: 0.0ms | Allocations: 12665)
+
+
+Started GET "/users" for ::1 at 2021-10-09 01:00:05 +0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 1]]
+  ↳ app/views/users/index.html.erb:7
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/index.html.erb:8
+  Rendered users/index.html.erb within layouts/application (Duration: 21.6ms | Allocations: 2325)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 36.6ms | Allocations: 6026)
+Completed 200 OK in 40ms (Views: 37.7ms | ActiveRecord: 0.9ms | Allocations: 6434)
+
+
+Started GET "/events" for ::1 at 2021-10-09 01:00:07 +0300
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (57.9ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY created_at DESC[0m
+  ↳ app/views/events/index.html.erb:3
+  Rendered events/index.html.erb within layouts/application (Duration: 191.3ms | Allocations: 5467)
+  Rendered layout layouts/application.html.erb (Duration: 191.7ms | Allocations: 5531)
+Completed 500 Internal Server Error in 200ms (ActiveRecord: 58.2ms | Allocations: 6569)
+
+
+  
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+    2: <div>
+    3:   <% @events.each do |event| %>
+    4:     <p>Creator: <%= show_creator(event) %>
+    5:     <p>Event: <%= link_to @event.title, event_path(event) %></p>
+    6:     <p>Place: <%= @event.place %></p>
+    7:     <p>Date: <%= @event.date %></p>
+    8:     <button>Interested</button>
+  
+app/views/events/index.html.erb:5
+app/views/events/index.html.erb:3
+Started GET "/users/sign_in" for ::1 at 2021-10-09 01:00:08 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 158)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 81.1ms | Allocations: 9652)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 108.7ms | Allocations: 13678)
+Completed 200 OK in 116ms (Views: 112.4ms | ActiveRecord: 0.0ms | Allocations: 14713)
+
+
+Started POST "/users/sign_in" for ::1 at 2021-10-09 01:00:20 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"oksana@mail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (41.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "oksana@mail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 675ms (ActiveRecord: 41.3ms | Allocations: 4175)
+
+
+Started GET "/" for ::1 at 2021-10-09 01:00:20 +0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 1]]
+  ↳ app/views/users/index.html.erb:7
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/index.html.erb:8
+  Rendered users/index.html.erb within layouts/application (Duration: 11.0ms | Allocations: 2362)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:48:in `show_create_event_button'
+  Rendered layout layouts/application.html.erb (Duration: 34.7ms | Allocations: 6901)
+Completed 200 OK in 36ms (Views: 34.5ms | ActiveRecord: 1.0ms | Allocations: 7311)
+
+
+Started GET "/events/new" for ::1 at 2021-10-09 01:00:29 +0300
+Processing by EventsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/new.html.erb within layouts/application (Duration: 234.6ms | Allocations: 9572)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 244.1ms | Allocations: 13134)
+Completed 200 OK in 252ms (Views: 245.4ms | ActiveRecord: 0.2ms | Allocations: 14748)
+
+
+Started POST "/events" for ::1 at 2021-10-09 01:00:39 +0300
+Processing by EventsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "event"=>{"title"=>"Greatest party", "place"=>"My home", "date(1i)"=>"2021", "date(2i)"=>"10", "date(3i)"=>"8", "date(4i)"=>"22", "date(5i)"=>"00"}, "commit"=>"Create Event"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:21:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:21:in `create'
+  [1m[36mEvent Create (30.6ms)[0m  [1m[32mINSERT INTO "events" ("title", "place", "date", "created_at", "updated_at", "creator_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Greatest party"], ["place", "My home"], ["date", "2021-10-08 22:00:00"], ["created_at", "2021-10-08 22:00:39.505741"], ["updated_at", "2021-10-08 22:00:39.505741"], ["creator_id", 1]]
+  ↳ app/controllers/events_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (639.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/events_controller.rb:21:in `create'
+Completed 500 Internal Server Error in 885ms (ActiveRecord: 670.4ms | Allocations: 9036)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"events"}, missing required keys: [:id]
+Did you mean?  event_url
+               events_url
+               events_path
+               events_show_url):
+  
+app/controllers/events_controller.rb:23:in `create'
+Started POST "/events" for ::1 at 2021-10-09 01:01:06 +0300
+Processing by EventsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "event"=>{"title"=>"Greatest party", "place"=>"My home", "date(1i)"=>"2021", "date(2i)"=>"10", "date(3i)"=>"8", "date(4i)"=>"22", "date(5i)"=>"00"}, "commit"=>"Create Event"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:21:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:21:in `create'
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("title", "place", "date", "created_at", "updated_at", "creator_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Greatest party"], ["place", "My home"], ["date", "2021-10-08 22:00:00"], ["created_at", "2021-10-08 22:01:06.508567"], ["updated_at", "2021-10-08 22:01:06.508567"], ["creator_id", 1]]
+  ↳ app/controllers/events_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (208.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/events_controller.rb:21:in `create'
+Redirected to http://localhost:3000/events
+Completed 302 Found in 323ms (ActiveRecord: 213.4ms | Allocations: 18294)
+
+
+Started GET "/events" for ::1 at 2021-10-09 01:01:06 +0300
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY created_at DESC[0m
+  ↳ app/views/events/index.html.erb:3
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:20:in `show_creator'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:21:in `show_creator'
+  Rendered events/index.html.erb within layouts/application (Duration: 13.9ms | Allocations: 3853)
+  Rendered layout layouts/application.html.erb (Duration: 14.2ms | Allocations: 3917)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.9ms | Allocations: 4428)
+
+
+  
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+    2: <div>
+    3:   <% @events.each do |event| %>
+    4:     <p>Creator: <%= show_creator(event) %>
+    5:     <p>Event: <%= link_to @event.title, event_path(event) %></p>
+    6:     <p>Place: <%= @event.place %></p>
+    7:     <p>Date: <%= @event.date %></p>
+    8:     <button>Interested</button>
+  
+app/views/events/index.html.erb:5
+app/views/events/index.html.erb:3
+Started GET "/events" for ::1 at 2021-10-09 01:03:21 +0300
+Processing by EventsController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/events_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY created_at DESC[0m
+  ↳ app/views/events/index.html.erb:3
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:20:in `show_creator'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:21:in `show_creator'
+  Rendered events/index.html.erb within layouts/application (Duration: 46.7ms | Allocations: 11507)
+  Rendered layout layouts/application.html.erb (Duration: 47.0ms | Allocations: 11571)
+Completed 500 Internal Server Error in 62ms (ActiveRecord: 3.7ms | Allocations: 14578)
+
+
+  
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+    2: <div>
+    3:   <% @events.each do |event| %>
+    4:     <p>Creator: <%= show_creator(event) %>
+    5:     <p>Event: <%= link_to @event.title, event_path(event) %></p>
+    6:     <p>Place: <%= @event.place %></p>
+    7:     <p>Date: <%= @event.date %></p>
+    8:     <button>Interested</button>
+  
+app/views/events/index.html.erb:5
+app/views/events/index.html.erb:3
+Started GET "/events" for ::1 at 2021-10-09 01:04:35 +0300
+Processing by EventsController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/events_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY created_at DESC[0m
+  ↳ app/views/events/index.html.erb:3
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:20:in `show_creator'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:21:in `show_creator'
+  Rendered events/index.html.erb within layouts/application (Duration: 62.6ms | Allocations: 11523)
+  Rendered layout layouts/application.html.erb (Duration: 62.9ms | Allocations: 11587)
+Completed 500 Internal Server Error in 78ms (ActiveRecord: 7.1ms | Allocations: 14587)
+
+
+  
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+    2: <div>
+    3:   <% @events.each do |event| %>
+    4:     <p>Creator: <%= show_creator(event) %>
+    5:     <p>Event: <%= link_to @event.title, event_path(event) %></p>
+    6:     <p>Place: <%= @event.place %></p>
+    7:     <p>Date: <%= @event.date %></p>
+    8:     <button>Interested</button>
+  
+app/views/events/index.html.erb:5
+app/views/events/index.html.erb:3
+Started GET "/events" for ::1 at 2021-10-09 01:06:34 +0300
+Processing by EventsController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/events_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY created_at DESC[0m
+  ↳ app/views/events/index.html.erb:3
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:20:in `show_creator'
+  [1m[36mUser Load (7.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:21:in `show_creator'
+  Rendered events/index.html.erb within layouts/application (Duration: 58.5ms | Allocations: 11521)
+  Rendered layout layouts/application.html.erb (Duration: 58.9ms | Allocations: 11585)
+Completed 500 Internal Server Error in 387ms (ActiveRecord: 11.7ms | Allocations: 14857)
+
+
+  
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+    2: <div>
+    3:   <% @events.each do |event| %>
+    4:     <p>Creator: <%= show_creator(event) %>
+    5:     <p>Event: <%= link_to @event.title, event_path(event) %></p>
+    6:     <p>Place: <%= @event.place %></p>
+    7:     <p>Date: <%= @event.date %></p>
+    8:     <button>Interested</button>
+  
+app/views/events/index.html.erb:5
+app/views/events/index.html.erb:3
+Started GET "/events" for ::1 at 2021-10-09 01:06:38 +0300
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY created_at DESC[0m
+  ↳ app/views/events/index.html.erb:3
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:20:in `show_creator'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:21:in `show_creator'
+  Rendered events/index.html.erb within layouts/application (Duration: 18.0ms | Allocations: 3836)
+  Rendered layout layouts/application.html.erb (Duration: 19.3ms | Allocations: 3900)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.8ms | Allocations: 4290)
+
+
+  
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+    2: <div>
+    3:   <% @events.each do |event| %>
+    4:     <p>Creator: <%= show_creator(event) %>
+    5:     <p>Event: <%= link_to @event.title, event_path(event) %></p>
+    6:     <p>Place: <%= @event.place %></p>
+    7:     <p>Date: <%= @event.date %></p>
+    8:     <button>Interested</button>
+  
+app/views/events/index.html.erb:5
+app/views/events/index.html.erb:3
+Started GET "/events" for ::1 at 2021-10-09 01:08:38 +0300
+Processing by EventsController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/events_controller.rb:8:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY created_at DESC[0m
+  ↳ app/views/events/index.html.erb:3
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:20:in `show_creator'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:21:in `show_creator'
+  Rendered events/index.html.erb within layouts/application (Duration: 46.3ms | Allocations: 11520)
+  Rendered layout layouts/application.html.erb (Duration: 47.1ms | Allocations: 11584)
+Completed 500 Internal Server Error in 69ms (ActiveRecord: 4.5ms | Allocations: 14817)
+
+
+  
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+    2: <div>
+    3:   <% @events.each do |event| %>
+    4:     <p>Creator: <%= show_creator(event) %>
+    5:     <p>Event: <%= link_to @event.title, event_path(event) %></p>
+    6:     <p>Place: <%= @event.place %></p>
+    7:     <p>Date: <%= @event.date %></p>
+    8:     <button>Interested</button>
+  
+app/views/events/index.html.erb:5
+app/views/events/index.html.erb:3
+Started GET "/events" for ::1 at 2021-10-09 01:08:41 +0300
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY created_at DESC[0m
+  ↳ app/views/events/index.html.erb:3
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:20:in `show_creator'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:21:in `show_creator'
+  Rendered events/index.html.erb within layouts/application (Duration: 27.2ms | Allocations: 3837)
+  Rendered layout layouts/application.html.erb (Duration: 27.6ms | Allocations: 3901)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 1.2ms | Allocations: 4295)
+
+
+  
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+    2: <div>
+    3:   <% @events.each do |event| %>
+    4:     <p>Creator: <%= show_creator(event) %>
+    5:     <p>Event: <%= link_to @event.title, event_path(event) %></p>
+    6:     <p>Place: <%= @event.place %></p>
+    7:     <p>Date: <%= @event.date %></p>
+    8:     <button>Interested</button>
+  
+app/views/events/index.html.erb:5
+app/views/events/index.html.erb:3
+Started GET "/events" for ::1 at 2021-10-09 01:10:01 +0300
+  [1m[35m (17.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY created_at DESC[0m
+  ↳ app/views/events/index.html.erb:3
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:20:in `show_creator'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:21:in `show_creator'
+  Rendered events/index.html.erb within layouts/application (Duration: 126.5ms | Allocations: 13958)
+  Rendered layout layouts/application.html.erb (Duration: 126.8ms | Allocations: 14027)
+Completed 500 Internal Server Error in 256ms (ActiveRecord: 4.0ms | Allocations: 19290)
+
+
+  
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+    2: <div>
+    3:   <% @events.each do |event| %>
+    4:     <p>Creator: <%= show_creator(event) %>
+    5:     <p>Event: <%= link_to @event.title, event_path(event) %></p>
+    6:     <p>Place: <%= @event.place %></p>
+    7:     <p>Date: <%= @event.date %></p>
+    8:     <button>Interested</button>
+  
+app/views/events/index.html.erb:5
+app/views/events/index.html.erb:3
+Started GET "/events" for ::1 at 2021-10-09 01:10:52 +0300
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY created_at DESC[0m
+  ↳ app/views/events/index.html.erb:3
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:20:in `show_creator'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:21:in `show_creator'
+  Rendered events/index.html.erb within layouts/application (Duration: 34.0ms | Allocations: 4165)
+  Rendered layout layouts/application.html.erb (Duration: 35.1ms | Allocations: 4230)
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 1.6ms | Allocations: 5568)
+
+
+  
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+    2: <div>
+    3:   <% @events.each do |event| %>
+    4:     <p>Creator: <%= show_creator(event) %>
+    5:     <p>Event: <%= @event.title %></p>
+    6:     <p>Place: <%= @event.place %></p>
+    7:     <p>Date: <%= @event.date %></p>
+    8:     <button>Interested</button>
+  
+app/views/events/index.html.erb:5
+app/views/events/index.html.erb:3
+Started GET "/events" for ::1 at 2021-10-09 01:15:47 +0300
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY created_at DESC[0m
+  ↳ app/views/events/index.html.erb:3
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:20:in `show_creator'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:21:in `show_creator'
+  Rendered events/index.html.erb within layouts/application (Duration: 35.9ms | Allocations: 4023)
+  Rendered layout layouts/application.html.erb (Duration: 36.4ms | Allocations: 4088)
+Completed 500 Internal Server Error in 44ms (ActiveRecord: 1.7ms | Allocations: 5298)
+
+
+  
+ActionView::Template::Error (undefined method `place' for nil:NilClass):
+    3:   <% @events.each do |event| %>
+    4:     <p>Creator: <%= show_creator(event) %>
+    5:     <p>Event: <%= event.title %></p>
+    6:     <p>Place: <%= @event.place %></p>
+    7:     <p>Date: <%= @event.date %></p>
+    8:     <button>Interested</button>
+    9:     <p>*   *   *   *   *</p>
+  
+app/views/events/index.html.erb:6
+app/views/events/index.html.erb:3
+Started GET "/events" for ::1 at 2021-10-09 01:15:58 +0300
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY created_at DESC[0m
+  ↳ app/views/events/index.html.erb:3
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:20:in `show_creator'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:21:in `show_creator'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:21:in `show_creator'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:21:in `show_creator'
+  Rendered events/index.html.erb within layouts/application (Duration: 40.8ms | Allocations: 4106)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 643.0ms | Allocations: 11303)
+Completed 200 OK in 650ms (Views: 646.0ms | ActiveRecord: 1.3ms | Allocations: 12538)
+
+
+Started GET "/events" for ::1 at 2021-10-09 01:18:10 +0300
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (1.0ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY created_at DESC[0m
+  ↳ app/views/events/index.html.erb:3
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:20:in `show_creator'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:21:in `show_creator'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:21:in `show_creator'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:21:in `show_creator'
+  Rendered events/index.html.erb within layouts/application (Duration: 33.2ms | Allocations: 4166)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 49.6ms | Allocations: 8241)
+Completed 200 OK in 58ms (Views: 54.4ms | ActiveRecord: 1.5ms | Allocations: 9480)
+
+
+Started GET "/" for ::1 at 2021-10-09 01:18:13 +0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 1]]
+  ↳ app/views/users/index.html.erb:7
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/index.html.erb:8
+  Rendered users/index.html.erb within layouts/application (Duration: 273.4ms | Allocations: 5261)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:48:in `show_create_event_button'
+  Rendered layout layouts/application.html.erb (Duration: 297.7ms | Allocations: 9652)
+Completed 200 OK in 305ms (Views: 300.2ms | ActiveRecord: 2.1ms | Allocations: 10754)
+
+
+Started GET "/users" for ::1 at 2021-10-09 01:18:27 +0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 1]]
+  ↳ app/views/users/index.html.erb:7
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/index.html.erb:8
+  Rendered users/index.html.erb within layouts/application (Duration: 14.2ms | Allocations: 2315)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:48:in `show_create_event_button'
+  Rendered layout layouts/application.html.erb (Duration: 33.7ms | Allocations: 7354)
+Completed 200 OK in 36ms (Views: 33.7ms | ActiveRecord: 1.1ms | Allocations: 7756)
+
+
+Started GET "/events" for ::1 at 2021-10-09 01:18:35 +0300
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY created_at DESC[0m
+  ↳ app/views/events/index.html.erb:3
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:20:in `show_creator'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:21:in `show_creator'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:21:in `show_creator'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:21:in `show_creator'
+  Rendered events/index.html.erb within layouts/application (Duration: 26.5ms | Allocations: 3957)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 37.7ms | Allocations: 7585)
+Completed 200 OK in 41ms (Views: 37.9ms | ActiveRecord: 0.8ms | Allocations: 8011)
+
+
+Started GET "/events" for ::1 at 2021-10-09 01:18:59 +0300
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY created_at DESC[0m
+  ↳ app/views/events/index.html.erb:3
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:20:in `show_creator'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:21:in `show_creator'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:21:in `show_creator'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:21:in `show_creator'
+  Rendered events/index.html.erb within layouts/application (Duration: 27.1ms | Allocations: 4151)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 41.4ms | Allocations: 8222)
+Completed 200 OK in 47ms (Views: 44.3ms | ActiveRecord: 1.0ms | Allocations: 9447)
+
+
+Started GET "/" for ::1 at 2021-10-09 01:19:04 +0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 1]]
+  ↳ app/views/users/index.html.erb:7
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/index.html.erb:8
+  Rendered users/index.html.erb within layouts/application (Duration: 13.6ms | Allocations: 2479)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:48:in `show_create_event_button'
+  Rendered layout layouts/application.html.erb (Duration: 40.2ms | Allocations: 7530)
+Completed 200 OK in 46ms (Views: 41.8ms | ActiveRecord: 1.0ms | Allocations: 8506)
+
+
+Started GET "/users" for ::1 at 2021-10-09 01:19:06 +0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."creator_id" = ?[0m  [["creator_id", 1]]
+  ↳ app/views/users/index.html.erb:7
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/index.html.erb:8
+  Rendered users/index.html.erb within layouts/application (Duration: 14.8ms | Allocations: 2315)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:48:in `show_create_event_button'
+  Rendered layout layouts/application.html.erb (Duration: 29.0ms | Allocations: 6772)
+Completed 200 OK in 36ms (Views: 33.0ms | ActiveRecord: 1.1ms | Allocations: 7656)
+
+
+Started GET "/events" for ::1 at 2021-10-09 01:19:08 +0300
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY created_at DESC[0m
+  ↳ app/views/events/index.html.erb:3
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:20:in `show_creator'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:21:in `show_creator'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:21:in `show_creator'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:21:in `show_creator'
+  Rendered events/index.html.erb within layouts/application (Duration: 33.8ms | Allocations: 3957)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 43.8ms | Allocations: 7614)
+Completed 200 OK in 46ms (Views: 43.9ms | ActiveRecord: 0.9ms | Allocations: 8041)
+
+

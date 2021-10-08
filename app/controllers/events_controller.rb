@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class EventsController < ApplicationController
+  before_action :set_event, only: %i[show edit update destroy]
   before_action :authenticate_user!, except: [:index]
 
   def index
@@ -18,15 +19,19 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.created_events.build(event_params)
-
+    @event.save
     if @event.save
-      redirect_to event_path
+      redirect_to @event
     else
       render 'new'
     end
   end
 
   private
+
+  def set_event
+    @event = Event.find(params[:id])
+  end
 
   def event_params
     params.require(:event).permit(:title, :place, :date)
