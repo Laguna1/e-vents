@@ -1,12 +1,11 @@
 <h1>All Events</h1>
 <div>
   <% @events.each do |event| %>
-    <p>Creator: <%= show_creator(event) %>
+    <p><%= show_creator(event) %></p>
     <p>Event: <%= event.title %></p>
-    <p><%= link_to 'More:', event_path(event) %></p>
+    <p><%= link_to 'More...', event_path(event) %></p>
     <p>Place: <%= event.place %></p>
     <p>Date: <%= event.date %></p>
-    <button>Interested</button>
     <p>*   *   *   *   *</p>
   <% end %>
     <p>*   *   *   *   *</p>
