@@ -19,7 +19,6 @@ class EventsController < ApplicationController # rubocop:todo Style/Documentatio
 
   def create
     @event = current_user.created_events.build(event_params)
-    @event.save
     if @event.save
       redirect_to @event, notice: 'Your event was successfully created'
     else
