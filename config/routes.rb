@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   resources :attendances do
     match '/join', to: 'attendances#join', via: :post, on: :collection
   end
-  root 'users#index'
+  root 'events#index'
 end
