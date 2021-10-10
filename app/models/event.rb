@@ -11,4 +11,4 @@ class Event < ApplicationRecord
   validates :title, presence: true, length: { maximum: 20 }
   validates :place, presence: true, length: { maximum: 20 }
   validates :date, presence: true
-end 
+end

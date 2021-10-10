@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class UsersController < ApplicationController
+class UsersController < ApplicationController # rubocop:todo Style/Documentation
   def index
     @users = User.all
   end
@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    redirect_to users_path if @user.save
+    redirect_to root_path if @user.save
   end
 
   private

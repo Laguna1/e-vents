@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# rubocop:todo Style/Documentation
+
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -11,3 +13,5 @@ class ApplicationController < ActionController::Base
     end
   end
 end
+
+# rubocop:enable Style/Documentation

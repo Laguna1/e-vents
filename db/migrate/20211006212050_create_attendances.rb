@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CreateAttendances < ActiveRecord::Migration[6.1]
+class CreateAttendances < ActiveRecord::Migration[6.1] # rubocop:todo Style/Documentation
   def change
     create_table :attendances do |t|
       t.references :user, null: false, foreign_key: true

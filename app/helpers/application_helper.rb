@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module ApplicationHelper
+module ApplicationHelper # rubocop:todo Style/Documentation
   def show_user(current_user)
     if signed_in?
       "<p class='control'>
@@ -20,7 +20,7 @@ module ApplicationHelper
     if signed_in?
       "<p>Creator: #{event.creator.name}</p>".html_safe
     else
-      '<p>Creator: Noname</p>'.html_safe
+      '<p>Creator: This info is available only for members</p>'.html_safe
     end
   end
 
@@ -37,7 +37,7 @@ module ApplicationHelper
 
   def show_registration_button(event)
     if event.attendances.exists?(user_id: current_user.id)
-      '<p>Already done</p>'.html_safe
+      '<p>You`re already joined</p>'.html_safe
     else
       link_to 'Join Event', join_attendances_path(id: @event.id), class: 'button is-info is-inverted mt-2',
                                                                   method: :post.to_s.html_safe
@@ -45,6 +45,9 @@ module ApplicationHelper
   end
 
   def show_create_event_button
-    (link_to 'Create new event', new_event_path, class: 'button is-info is-inverted mt-2').to_s.html_safe if current_user
+    if current_user # rubocop:todo Style/GuardClause
+      (link_to 'Create new event', new_event_path,
+               class: 'button is-info is-inverted mt-2').to_s.html_safe
+    end
   end
 end

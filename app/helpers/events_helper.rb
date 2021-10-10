@@ -1,4 +1,4 @@
 # frozen_string_literal: true
 
-module EventsHelper
+module EventsHelper # rubocop:todo Style/Documentation
 end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class AttendancesController < ApplicationController
+class AttendancesController < ApplicationController # rubocop:todo Style/Documentation
   def join
     @attendance = Attendance.new(event_id: params[:id], user_id: current_user.id)
     @attendance.save

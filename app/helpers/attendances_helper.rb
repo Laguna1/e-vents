@@ -1,4 +1,4 @@
 # frozen_string_literal: true
 
-module AttendancesHelper
+module AttendancesHelper # rubocop:todo Style/Documentation
 end
