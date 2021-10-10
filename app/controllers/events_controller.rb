@@ -6,6 +6,8 @@ class EventsController < ApplicationController # rubocop:todo Style/Documentatio
 
   def index
     @events = Event.all.order('created_at DESC')
+    @upcoming_events = Event.upcoming_events
+    @past_events = Event.past_events
   end
 
   def show

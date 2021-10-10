@@ -47,7 +47,21 @@ module ApplicationHelper # rubocop:todo Style/Documentation
   def show_create_event_button
     if current_user # rubocop:todo Style/GuardClause
       (link_to 'Create new event', new_event_path,
-               class: 'button is-info is-inverted mt-2').to_s.html_safe
+               class: 'button is-info is-inverted mt-2 ml-2').to_s.html_safe
+    end
+  end
+
+  def show_upcoming_events_button
+    if current_user # rubocop:todo Style/GuardClause
+      (link_to 'Upcoming Events', events_upcoming_path,
+               class: 'button is-info is-inverted mt-2 ml-2').to_s.html_safe
+    end
+  end
+
+  def show_past_events_button
+    if current_user # rubocop:todo Style/GuardClause
+      (link_to 'Past Events', events_past_path,
+               class: 'button is-info is-inverted mt-2 ml-2').to_s.html_safe
     end
   end
 end
