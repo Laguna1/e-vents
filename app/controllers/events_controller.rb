@@ -27,6 +27,14 @@ class EventsController < ApplicationController # rubocop:todo Style/Documentatio
     end
   end
 
+  def show_past
+    @past_events = Event.past_events
+  end
+
+  def show_upcoming
+    @upcoming_events = Event.upcoming_events
+  end
+
   private
 
   def set_event
