@@ -1,6 +1,8 @@
-<h1>User Page</h1>
- <p class='card'>
-     Username
- 
-</p>
-<span>(link?)This User`s events</span>
+<h1>
+ <strong><%= current_user.name %></strong>`s Page</h1>
+<div>
+  <p>Your Events:</p>
+  <% current_user.created_events.each do |event| %>
+    <p>* <%= event.title %></p>
+  <% end%>
+</div>

@@ -5,7 +5,10 @@ class UsersController < ApplicationController # rubocop:todo Style/Documentation
     @users = User.all
   end
 
-  def show; end
+  def show
+    @upcoming = current_user.created_events.upcoming_events
+    @past = current_user.created_events.past_events
+  end
 
   def new
     @user = User.new
