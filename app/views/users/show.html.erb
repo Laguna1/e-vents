@@ -1,15 +1,8 @@
 <h1>
  <strong><%= current_user.name %></strong>`s Page</h1>
 <div>
-  <p><%= current_user.name %>`s created Events (<%= @created_events.count %>):</p>
-  <%= @created_events.each do |event|%>
-  
-    <p>* <%= event.title %></p>
-    <p><%= link_to 'More...', event_path(event) %></p>
-     <p>*   *   *</p>
-  <% end%><br />
-
-  <h5>Visited events (<%= @attended_events.count %>): </h5>
+  <p><%= current_user.name %>`s 
+  <h5>visited events (<%= @attended_events.count %>): </h5>
   <%= @attended_events.each do |event|%>
     <p>* <%= event.title %></p>
     <p><%= link_to 'More...', event_path(event) %></p>
