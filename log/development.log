@@ -9371,3 +9371,46 @@ Processing by Devise::SessionsController#new as HTML
 Completed 200 OK in 168ms (Views: 166.1ms | ActiveRecord: 0.0ms | Allocations: 14977)
 
 
+Started GET "/users/sign_in" for ::1 at 2021-10-11 16:13:07 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 148)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 36.0ms | Allocations: 9065)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 67.9ms | Allocations: 12745)
+Completed 200 OK in 72ms (Views: 70.4ms | ActiveRecord: 0.0ms | Allocations: 13341)
+
+
+Started POST "/users/sign_in" for ::1 at 2021-10-11 16:13:13 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"laura@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "laura@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/events/6
+Completed 302 Found in 571ms (ActiveRecord: 0.4ms | Allocations: 5867)
+
+
+Started GET "/events/6" for ::1 at 2021-10-11 16:13:14 +0300
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:42:in `set_event'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:14:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:4
+  [1m[36mAttendance Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "attendances" WHERE "attendances"."event_id" = ? AND "attendances"."user_id" = ? LIMIT ?[0m  [["event_id", 6], ["user_id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:39:in `show_registration_button'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."user_id" WHERE "attendances"."event_id" = ?[0m  [["event_id", 6]]
+  ↳ app/helpers/application_helper.rb:29:in `show_attendees'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."user_id" WHERE "attendances"."event_id" = ?[0m  [["event_id", 6]]
+  ↳ app/helpers/application_helper.rb:31:in `show_attendees'
+  Rendered events/show.html.erb within layouts/application (Duration: 17.4ms | Allocations: 3612)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 27.1ms | Allocations: 7287)
+Completed 200 OK in 37ms (Views: 26.5ms | ActiveRecord: 1.8ms | Allocations: 9989)
+
+

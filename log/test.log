@@ -522,3 +522,437 @@ Completed 401 Unauthorized in 280ms (ActiveRecord: 0.0ms | Allocations: 1691)
   Rendered layout layouts/application.html.erb (Duration: 498.8ms | Allocations: 4324)
 Completed 500 Internal Server Error in 1303ms (ActiveRecord: 415.3ms | Allocations: 7616)
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (60.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (58.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (59.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (345.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (360.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTruncate Tables (1642.1ms)[0m  [1m[31mDELETE FROM "users";
+DELETE FROM "attendances";
+DELETE FROM "events"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTruncate Tables (1895.7ms)[0m  [1m[31mDELETE FROM "users";
+DELETE FROM "attendances";
+DELETE FROM "events"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.7ms)[0m  [1m[31mDELETE FROM "events";
+DELETE FROM "users";
+DELETE FROM "attendances";
+INSERT INTO "events" ("id", "title", "place", "date", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2021-10-07 00:16:32', '2021-10-11 14:11:55.080413', '2021-10-11 14:11:55.080413');
+INSERT INTO "events" ("id", "title", "place", "date", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2021-10-07 00:16:32', '2021-10-11 14:11:55.080413', '2021-10-11 14:11:55.080413');
+INSERT INTO "users" ("id", "email", "created_at", "updated_at") VALUES (980190962, 'test1@test.com', '2021-10-11 14:11:55.084404', '2021-10-11 14:11:55.084404');
+INSERT INTO "users" ("id", "email", "created_at", "updated_at") VALUES (298486374, 'test2@test.com', '2021-10-11 14:11:55.084404', '2021-10-11 14:11:55.084404');
+INSERT INTO "attendances" ("id", "user_id", "event_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2021-10-11 14:11:55.086751', '2021-10-11 14:11:55.086751');
+INSERT INTO "attendances" ("id", "user_id", "event_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2021-10-11 14:11:55.086751', '2021-10-11 14:11:55.086751')[0m
+  [1m[36mFixtures Load (0.9ms)[0m  [1m[31mDELETE FROM "events";
+DELETE FROM "users";
+DELETE FROM "attendances";
+INSERT INTO "events" ("id", "title", "place", "date", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2021-10-07 00:16:32', '2021-10-11 14:11:55.080413', '2021-10-11 14:11:55.080413');
+INSERT INTO "events" ("id", "title", "place", "date", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2021-10-07 00:16:32', '2021-10-11 14:11:55.080413', '2021-10-11 14:11:55.080413');
+INSERT INTO "users" ("id", "email", "created_at", "updated_at") VALUES (980190962, 'test1@test.com', '2021-10-11 14:11:55.084404', '2021-10-11 14:11:55.084404');
+INSERT INTO "users" ("id", "email", "created_at", "updated_at") VALUES (298486374, 'test2@test.com', '2021-10-11 14:11:55.084404', '2021-10-11 14:11:55.084404');
+INSERT INTO "attendances" ("id", "user_id", "event_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2021-10-11 14:11:55.086751', '2021-10-11 14:11:55.086751');
+INSERT INTO "attendances" ("id", "user_id", "event_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2021-10-11 14:11:55.086751', '2021-10-11 14:11:55.086751')[0m
+  [1m[36mTRANSACTION (345.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------
+EventsControllerTest: test_should_get_index
+-------------------------------------------
+  [1m[36mTRANSACTION (442.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------
+EventsControllerTest: test_should_get_show
+------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTruncate Tables (1137.4ms)[0m  [1m[31mDELETE FROM "users";
+DELETE FROM "attendances";
+DELETE FROM "events"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.6ms)[0m  [1m[31mDELETE FROM "events";
+DELETE FROM "users";
+DELETE FROM "attendances";
+INSERT INTO "events" ("id", "title", "place", "date", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2021-10-07 00:16:32', '2021-10-11 14:12:32.787716', '2021-10-11 14:12:32.787716');
+INSERT INTO "events" ("id", "title", "place", "date", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2021-10-07 00:16:32', '2021-10-11 14:12:32.787716', '2021-10-11 14:12:32.787716');
+INSERT INTO "users" ("id", "email", "created_at", "updated_at") VALUES (980190962, 'test1@test.com', '2021-10-11 14:12:32.790859', '2021-10-11 14:12:32.790859');
+INSERT INTO "users" ("id", "email", "created_at", "updated_at") VALUES (298486374, 'test2@test.com', '2021-10-11 14:12:32.790859', '2021-10-11 14:12:32.790859');
+INSERT INTO "attendances" ("id", "user_id", "event_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2021-10-11 14:12:32.792839', '2021-10-11 14:12:32.792839');
+INSERT INTO "attendances" ("id", "user_id", "event_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2021-10-11 14:12:32.792839', '2021-10-11 14:12:32.792839')[0m
+  [1m[36mTruncate Tables (1278.2ms)[0m  [1m[31mDELETE FROM "users";
+DELETE FROM "attendances";
+DELETE FROM "events"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.7ms)[0m  [1m[31mDELETE FROM "events";
+DELETE FROM "users";
+DELETE FROM "attendances";
+INSERT INTO "events" ("id", "title", "place", "date", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2021-10-07 00:16:32', '2021-10-11 14:12:32.930387', '2021-10-11 14:12:32.930387');
+INSERT INTO "events" ("id", "title", "place", "date", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2021-10-07 00:16:32', '2021-10-11 14:12:32.930387', '2021-10-11 14:12:32.930387');
+INSERT INTO "users" ("id", "email", "created_at", "updated_at") VALUES (980190962, 'test1@test.com', '2021-10-11 14:12:32.933471', '2021-10-11 14:12:32.933471');
+INSERT INTO "users" ("id", "email", "created_at", "updated_at") VALUES (298486374, 'test2@test.com', '2021-10-11 14:12:32.933471', '2021-10-11 14:12:32.933471');
+INSERT INTO "attendances" ("id", "user_id", "event_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2021-10-11 14:12:32.935335', '2021-10-11 14:12:32.935335');
+INSERT INTO "attendances" ("id", "user_id", "event_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2021-10-11 14:12:32.935335', '2021-10-11 14:12:32.935335')[0m
+  [1m[36mTRANSACTION (356.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------
+EventsControllerTest: test_should_get_index
+-------------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-10-11 17:12:33 +0300
+  [1m[36mTRANSACTION (549.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------
+EventsControllerTest: test_should_get_show
+------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (date >= '2021-10-11')[0m
+  Rendered events/_upcoming_events.html.erb (Duration: 70.5ms | Allocations: 301)
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (date < '2021-10-11')[0m
+  Rendered events/_past_events.html.erb (Duration: 49.7ms | Allocations: 3260)
+  Rendered events/index.html.erb within layouts/application (Duration: 213.5ms | Allocations: 4118)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/oksana/e-vents/public/packs-test
+[Webpacker] Hash: 136125f11e5621d168a5
+Version: webpack 4.46.0
+Time: 27869ms
+Built at: 10/11/2021 5:13:38 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-6a3d7ee8842fc9a8a864.js    125 KiB  application  [emitted] [immutable]  application
+js/application-6a3d7ee8842fc9a8a864.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  384 bytes               [emitted]              
+Entrypoint application = js/application-6a3d7ee8842fc9a8a864.js js/application-6a3d7ee8842fc9a8a864.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 492 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 65247.6ms | Allocations: 73514)
+Completed 200 OK in 65550ms (Views: 65276.9ms | ActiveRecord: 0.5ms | Allocations: 76980)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTruncate Tables (667.1ms)[0m  [1m[31mDELETE FROM "users";
+DELETE FROM "attendances";
+DELETE FROM "events"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.6ms)[0m  [1m[31mDELETE FROM "events";
+DELETE FROM "users";
+DELETE FROM "attendances";
+INSERT INTO "events" ("id", "title", "place", "date", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2021-10-07 00:16:32', '2021-10-11 14:14:24.189279', '2021-10-11 14:14:24.189279');
+INSERT INTO "events" ("id", "title", "place", "date", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2021-10-07 00:16:32', '2021-10-11 14:14:24.189279', '2021-10-11 14:14:24.189279');
+INSERT INTO "users" ("id", "email", "created_at", "updated_at") VALUES (980190962, 'test1@test.com', '2021-10-11 14:14:24.193778', '2021-10-11 14:14:24.193778');
+INSERT INTO "users" ("id", "email", "created_at", "updated_at") VALUES (298486374, 'test2@test.com', '2021-10-11 14:14:24.193778', '2021-10-11 14:14:24.193778');
+INSERT INTO "attendances" ("id", "user_id", "event_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2021-10-11 14:14:24.195474', '2021-10-11 14:14:24.195474');
+INSERT INTO "attendances" ("id", "user_id", "event_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2021-10-11 14:14:24.195474', '2021-10-11 14:14:24.195474')[0m
+  [1m[36mTruncate Tables (715.8ms)[0m  [1m[31mDELETE FROM "users";
+DELETE FROM "attendances";
+DELETE FROM "events"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.5ms)[0m  [1m[31mDELETE FROM "events";
+DELETE FROM "users";
+DELETE FROM "attendances";
+INSERT INTO "events" ("id", "title", "place", "date", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2021-10-07 00:16:32', '2021-10-11 14:14:24.235784', '2021-10-11 14:14:24.235784');
+INSERT INTO "events" ("id", "title", "place", "date", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2021-10-07 00:16:32', '2021-10-11 14:14:24.235784', '2021-10-11 14:14:24.235784');
+INSERT INTO "users" ("id", "email", "created_at", "updated_at") VALUES (980190962, 'test1@test.com', '2021-10-11 14:14:24.238265', '2021-10-11 14:14:24.238265');
+INSERT INTO "users" ("id", "email", "created_at", "updated_at") VALUES (298486374, 'test2@test.com', '2021-10-11 14:14:24.238265', '2021-10-11 14:14:24.238265');
+INSERT INTO "attendances" ("id", "user_id", "event_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2021-10-11 14:14:24.241044', '2021-10-11 14:14:24.241044');
+INSERT INTO "attendances" ("id", "user_id", "event_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2021-10-11 14:14:24.241044', '2021-10-11 14:14:24.241044')[0m
+  [1m[36mTRANSACTION (247.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------
+EventsControllerTest: test_should_get_index
+-------------------------------------------
+  [1m[36mTRANSACTION (342.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------
+EventsControllerTest: test_should_get_show
+------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/" for 127.0.0.1 at 2021-10-11 17:14:25 +0300
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (date >= '2021-10-11')[0m
+  Rendered events/_upcoming_events.html.erb (Duration: 37.6ms | Allocations: 301)
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (date < '2021-10-11')[0m
+  Rendered events/_past_events.html.erb (Duration: 17.7ms | Allocations: 3259)
+  Rendered events/index.html.erb within layouts/application (Duration: 112.9ms | Allocations: 4117)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 1304.6ms | Allocations: 18103)
+Completed 200 OK in 1664ms (Views: 1412.9ms | ActiveRecord: 0.4ms | Allocations: 21569)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTruncate Tables (694.9ms)[0m  [1m[31mDELETE FROM "users";
+DELETE FROM "attendances";
+DELETE FROM "events"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.6ms)[0m  [1m[31mDELETE FROM "events";
+DELETE FROM "users";
+DELETE FROM "attendances";
+INSERT INTO "events" ("id", "title", "place", "date", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2021-10-07 00:16:32', '2021-10-11 14:14:45.276860', '2021-10-11 14:14:45.276860');
+INSERT INTO "events" ("id", "title", "place", "date", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2021-10-07 00:16:32', '2021-10-11 14:14:45.276860', '2021-10-11 14:14:45.276860');
+INSERT INTO "users" ("id", "email", "created_at", "updated_at") VALUES (980190962, 'test1@test.com', '2021-10-11 14:14:45.279801', '2021-10-11 14:14:45.279801');
+INSERT INTO "users" ("id", "email", "created_at", "updated_at") VALUES (298486374, 'test2@test.com', '2021-10-11 14:14:45.279801', '2021-10-11 14:14:45.279801');
+INSERT INTO "attendances" ("id", "user_id", "event_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2021-10-11 14:14:45.282248', '2021-10-11 14:14:45.282248');
+INSERT INTO "attendances" ("id", "user_id", "event_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2021-10-11 14:14:45.282248', '2021-10-11 14:14:45.282248')[0m
+  [1m[36mTruncate Tables (801.6ms)[0m  [1m[31mDELETE FROM "users";
+DELETE FROM "attendances";
+DELETE FROM "events"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.6ms)[0m  [1m[31mDELETE FROM "events";
+DELETE FROM "users";
+DELETE FROM "attendances";
+INSERT INTO "events" ("id", "title", "place", "date", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2021-10-07 00:16:32', '2021-10-11 14:14:45.384650', '2021-10-11 14:14:45.384650');
+INSERT INTO "events" ("id", "title", "place", "date", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2021-10-07 00:16:32', '2021-10-11 14:14:45.384650', '2021-10-11 14:14:45.384650');
+INSERT INTO "users" ("id", "email", "created_at", "updated_at") VALUES (980190962, 'test1@test.com', '2021-10-11 14:14:45.387102', '2021-10-11 14:14:45.387102');
+INSERT INTO "users" ("id", "email", "created_at", "updated_at") VALUES (298486374, 'test2@test.com', '2021-10-11 14:14:45.387102', '2021-10-11 14:14:45.387102');
+INSERT INTO "attendances" ("id", "user_id", "event_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2021-10-11 14:14:45.389112', '2021-10-11 14:14:45.389112');
+INSERT INTO "attendances" ("id", "user_id", "event_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2021-10-11 14:14:45.389112', '2021-10-11 14:14:45.389112')[0m
+  [1m[36mTRANSACTION (266.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------
+EventsControllerTest: test_should_get_show
+------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (245.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------
+EventsControllerTest: test_should_get_index
+-------------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-10-11 17:14:45 +0300
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (date >= '2021-10-11')[0m
+  Rendered events/_upcoming_events.html.erb (Duration: 2.0ms | Allocations: 301)
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (date < '2021-10-11')[0m
+  Rendered events/_past_events.html.erb (Duration: 12.0ms | Allocations: 3260)
+  Rendered events/index.html.erb within layouts/application (Duration: 17.4ms | Allocations: 4118)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 405.1ms | Allocations: 18250)
+Completed 200 OK in 425ms (Views: 409.5ms | ActiveRecord: 0.6ms | Allocations: 21718)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTruncate Tables (1271.9ms)[0m  [1m[31mDELETE FROM "users";
+DELETE FROM "attendances";
+DELETE FROM "events"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.6ms)[0m  [1m[31mDELETE FROM "events";
+DELETE FROM "users";
+DELETE FROM "attendances";
+INSERT INTO "events" ("id", "title", "place", "date", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2021-10-07 00:16:32', '2021-10-11 14:15:06.472899', '2021-10-11 14:15:06.472899');
+INSERT INTO "events" ("id", "title", "place", "date", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2021-10-07 00:16:32', '2021-10-11 14:15:06.472899', '2021-10-11 14:15:06.472899');
+INSERT INTO "users" ("id", "email", "created_at", "updated_at") VALUES (980190962, 'test1@test.com', '2021-10-11 14:15:06.475488', '2021-10-11 14:15:06.475488');
+INSERT INTO "users" ("id", "email", "created_at", "updated_at") VALUES (298486374, 'test2@test.com', '2021-10-11 14:15:06.475488', '2021-10-11 14:15:06.475488');
+INSERT INTO "attendances" ("id", "user_id", "event_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2021-10-11 14:15:06.477864', '2021-10-11 14:15:06.477864');
+INSERT INTO "attendances" ("id", "user_id", "event_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2021-10-11 14:15:06.477864', '2021-10-11 14:15:06.477864')[0m
+  [1m[36mTruncate Tables (1306.4ms)[0m  [1m[31mDELETE FROM "users";
+DELETE FROM "attendances";
+DELETE FROM "events"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.8ms)[0m  [1m[31mDELETE FROM "events";
+DELETE FROM "users";
+DELETE FROM "attendances";
+INSERT INTO "events" ("id", "title", "place", "date", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2021-10-07 00:16:32', '2021-10-11 14:15:06.513228', '2021-10-11 14:15:06.513228');
+INSERT INTO "events" ("id", "title", "place", "date", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2021-10-07 00:16:32', '2021-10-11 14:15:06.513228', '2021-10-11 14:15:06.513228');
+INSERT INTO "users" ("id", "email", "created_at", "updated_at") VALUES (980190962, 'test1@test.com', '2021-10-11 14:15:06.516691', '2021-10-11 14:15:06.516691');
+INSERT INTO "users" ("id", "email", "created_at", "updated_at") VALUES (298486374, 'test2@test.com', '2021-10-11 14:15:06.516691', '2021-10-11 14:15:06.516691');
+INSERT INTO "attendances" ("id", "user_id", "event_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2021-10-11 14:15:06.518735', '2021-10-11 14:15:06.518735');
+INSERT INTO "attendances" ("id", "user_id", "event_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2021-10-11 14:15:06.518735', '2021-10-11 14:15:06.518735')[0m
+  [1m[36mTRANSACTION (264.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------
+EventsControllerTest: test_should_get_show
+------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (313.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------
+EventsControllerTest: test_should_get_index
+-------------------------------------------
+Started GET "/" for 127.0.0.1 at 2021-10-11 17:15:06 +0300
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (date >= '2021-10-11')[0m
+  Rendered events/_upcoming_events.html.erb (Duration: 1.2ms | Allocations: 301)
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (date < '2021-10-11')[0m
+  Rendered events/_past_events.html.erb (Duration: 11.7ms | Allocations: 3259)
+  Rendered events/index.html.erb within layouts/application (Duration: 15.0ms | Allocations: 4117)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 411.7ms | Allocations: 18304)
+Completed 200 OK in 431ms (Views: 414.3ms | ActiveRecord: 0.6ms | Allocations: 21770)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
