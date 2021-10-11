@@ -1,12 +1,5 @@
 <h1>All Events</h1>
 <div>
-  <% @events.each do |event| %>
-    <p><%= show_creator(event) %></p>
-    <p>Event: <%= event.title %></p>
-    <p><%= link_to 'More...', event_path(event) %></p>
-    <p>*   *   *   *   *</p>
-  <% end %>
-    <p>*   *   *   *   *</p>
-    <%= link_to '<-- Back', root_path%>
-
+  <%= render partial: 'upcoming_events' %> 
+  <%= render partial: 'past_events' %>
 </div>

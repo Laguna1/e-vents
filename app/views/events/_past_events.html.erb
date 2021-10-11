@@ -1,0 +1,6 @@
+<h1>Past Events List</h1>
+<% @past_events and @past_events.each do |event| %>
+  <strong><%= event.title %></strong>
+  <%= show_creator(event) %> 
+   <p><%= link_to 'More...', event_path(event) %></p>
+<% end %>

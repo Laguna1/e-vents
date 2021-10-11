@@ -1,0 +1,9 @@
+<h1>Upcoming Events List</h1>
+
+    <%@upcoming_events and @upcoming_events.each do |event| %>
+      <strong><%= event.title %></strong> 
+          <%= show_creator(event) %>         
+        <%= link_to 'Show more', event_path(event),class:'btn btn-primary' %>
+    <% end %>
+<p>*   *   *   *   *   *   *   *</p>
+<p>*   *   *   *   *   *   *   *</p>
