@@ -64,6 +64,4 @@ module ApplicationHelper # rubocop:todo Style/Documentation
                class: 'button is-info is-inverted mt-2 ml-2').to_s.html_safe
     end
   end
-
-  
 end
